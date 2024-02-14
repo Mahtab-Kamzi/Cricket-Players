@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Find a player">
+        <lightning-button label="New Cricketer"
+                          onclick={createCricketers}
+                          slot="actions">
+        </lightning-button>
+        <div class = "slds-align_absolute-center">           
+            <lightning-combobox  value={selectedCricketerNationality}
+                                 placeholder="Select a Country"
+                                 options={optionArrays}
+                                 onchange={handleOptionChange}>
+            </lightning-combobox>
+        </div>
+        <template if:true={selectedPlayerId}>
+            <p class = "slds-align_absolute-center" > Player ID : {selectedPlayerId}</p>
+            <p class = "slds-align_absolute-center" > Selected Player : {selectedPlayerName}</p>
+        </template>
+    </lightning-card>
+    <div class="slds-var-m-top_small">
+        <c-player-search-result onselect={handleCustomEvent}></c-player-search-result>
+    </div>
+</template>
